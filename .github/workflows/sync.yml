@@ -20,7 +20,7 @@ jobs:
       - name: Sync repo to GitHub
         run: npx @protocol.land/sync-github
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN || secrets.GITHUB_TOKEN }}
           WALLET: ${{ secrets.WALLET }}
           PL_REPO_ID: ${{ secrets.PL_REPO_ID }}
           FORCE_PUSH: ${{ inputs.forcePush }}
