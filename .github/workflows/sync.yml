@@ -7,9 +7,6 @@ on:
         description: "Force push"
         required: false
         default: "false"
-      repoId:
-        description: "Protocol Land Repo Id"
-        required: true
 
 permissions:
   contents: write
@@ -25,6 +22,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN || secrets.GITHUB_TOKEN }}
           WALLET: ${{ secrets.WALLET }}
-          PL_REPO_ID: ${{ inputs.repoId }}
+          PL_REPO_ID: ${{ secrets.PL_REPO_ID }}
           FORCE_PUSH: ${{ inputs.forcePush }}
           GH_REPO_NAME: ${{ github.repository }}
